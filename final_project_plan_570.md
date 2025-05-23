@@ -20,12 +20,21 @@ To increase robustness, a **secondary backup approach** should also be implement
 
 * What should the system do?
 
-_The system will complete the course as intended but if another car is detected 
-ahead, a constant following distance will be maintained. Car detection will be 
-acheived using YOLO._
+  * The system will complete the course as intended but if another car is detected 
+  ahead, a constant following distance will be maintained. Car detection will be 
+  acheived using YOLO.
+
+
 
 * What criteria define the task as successfully completed?
 
+  * Maintain following distance of 2 MX car lengths +-1/4 car in
+    * Bagfile simulation in Construct returns topic messages displaying if 
+      citeria is met 
+  
+  _Would be nice_ 
+  
+  * Citeria above is met on MX carkit hardware
 
 
 ---
@@ -34,9 +43,13 @@ acheived using YOLO._
 
 | Teammember | Task / Responsibility |
 | ---------- | --------------------- |
-|       Kai De La Cruz     |                       |
-|            |                       |
-|            |                       |
+| Kai De La Cruz  | CNN model architecture/training/improvement |
+| Noah Fitzgerald | ROS functions for speed control based on following distance |
+| Liam Drew       | Lidar setup and integration with YOLO |
+| Jack Foxcroft   | CNN model architecture/training/improvement |
+| Aidan Taylor    | Image segmentation on MX car in Roboflow from bagfile |
+| Jorlly Chang    | Set up ROS WS with nodes, topics, publishers/subscribers |
+
 
 ---
 
@@ -44,7 +57,17 @@ acheived using YOLO._
 
 * **Diagram:** Add a top-level flowchart showing all ROS2 nodes, and the topics they subscribe to and publish.
   *(Insert image here)*
-* **Description:**
+
+**Nodes:**
+ * camera
+    * waypoint and object publishers
+ * lidar
+    * point cloud publisher
+ * control
+    * waypoint, object, point cloud subscribers
+
+
+**Description:**
 
   * Explain the reasoning behind your architecture.
   * Is the system modular and failsafe?
@@ -101,8 +124,24 @@ All trainings must be **tracked and compared using wandb.ai** to ensure consiste
 ### 🎥 Data Requirements
 
 * What data or bagfiles do you need?
+
+  * Recording of a good run of the car going around the track_
+
+  * Recording of the car preforming an appropriate following distance_
+
+  * Recording of the car following too close
+
 * How should the recording setup look like?
-* List required topics to be recorded.
+
+  *
+
+* List required topics to be recorded:
+
+  * Steering angle
+
+  * Speed
+
+  * Lidar
 
 ---
 

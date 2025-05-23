@@ -35,7 +35,7 @@ acheived using YOLO._
 | Teammember | Task / Responsibility |
 | ---------- | --------------------- |
 |       Kai De La Cruz     |                       |
-|            |                       |
+|      Noah Fitzgerald      |                       |
 |            |                       |
 
 ---
